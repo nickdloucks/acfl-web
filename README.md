@@ -19,20 +19,5 @@ Each year, the ACFL hosts a league-wide single-elimination tournament before the
 
 ---
 
-#### make a query builder for dynamic statistical analysis
-
-
-Alpine
-
-Pine Bowl = At-Large bowl
-
-Maple
-Western Red Cedar
-Hemlock
-Sitka Spruce
-Douglas Fir
-
-Tide
-
-- sample logo SVG ![sample logo SVG](./public/assets/Aliens-logo.svg)
-- sample logo png ![sample logo png](./public/assets/Aliens.png)
+- sample logo png  
+![sample logo png](./public/assets/Aliens.png)
