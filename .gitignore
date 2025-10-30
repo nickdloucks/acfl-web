@@ -1,0 +1,8 @@
+*.env
+*.pem
+*.crt
+*.key
+*.db
+*.sqlite
+*.DS_Store
+dev-notes/
