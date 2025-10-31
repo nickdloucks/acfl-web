@@ -6,3 +6,4 @@
 *.sqlite
 *.DS_Store
 dev-notes/
+public/assets/*.svg
