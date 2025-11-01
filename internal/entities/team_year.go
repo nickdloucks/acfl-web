@@ -29,3 +29,11 @@ type TeamYearUpdatableConfig struct {
 	Color3     string `json:"color_3"`    // hex color code
 	Color4     string `json:"color_4"`    // hex color code
 }
+
+type TeamYearRepository interface {
+	CreateInitialYear(team Team, year uint8, config TeamYearUpdatableConfig) (TeamYear, error)
+	CreateSubsequentYear(team Team, year uint8, config ...TeamYearUpdatableConfig) (TeamYear, error)
+	FindById(id UuidV7Str) (TeamYear, error)
+	FindByNameAndYear(name string, year uint8) (TeamYear, error)
+	FindByTeamIdAndYear(teamId UuidV7Str, year uint8) (TeamYear, error)
+}

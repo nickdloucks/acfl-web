@@ -9,3 +9,7 @@ type Conference struct {
 	Color2           string    `json:"color_2"` // hex color code
 	Color3           string    `json:"color_3"` // hex color code
 }
+
+type ConferenceRepository interface {
+	FindById(id UuidV7Str) (Conference, error)
+}

@@ -4,8 +4,14 @@ type PlayerYear struct {
 	Id       string         `json:"id"`        // primary key
 	PlayerId string         `json:"player_id"` // foreign key to Player
 	Year     uint16         `json:"year"`
-	Team     string         `json:"team"` // foreign key to TeamYear
+	TeamId   string         `json:"team"` // foreign key to TeamYear
 	Position PlayerPosition `json:"position"`
+}
+
+type PlayerYearRepository interface {
+	CreateInitialPlayerYear(player Player) (PlayerYear, error)
+	CreateSubsequentPlayerYear(player Player) (PlayerYear, error)
+	AssignToRoster(py PlayerYear) error
 }
 
 type PlayerPosition string

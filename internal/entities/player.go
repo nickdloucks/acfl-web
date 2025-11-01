@@ -8,3 +8,7 @@ type Player struct {
 	Last  string `json:"last"`
 	// TO-DO: fields for skills?
 }
+
+type PlayerRepository interface {
+	FindById(id UuidV7Str) (Player, error)
+}
