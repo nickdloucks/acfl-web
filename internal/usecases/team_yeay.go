@@ -1,11 +1,11 @@
 package usecases
 
 import (
-	"github.com/nickdloucks/acfl-web/domain"
+	"nickdloucks/acfl-web/internal/entities"
 )
 
-func NewInitialTeamYear(team Team, year uint16, config TeamYearUpdatableConfig) TeamYear {
-	return TeamYear{
+func NewInitialTeamYear(team entities.Team, year uint16, config entities.TeamYearUpdatableConfig) entities.TeamYear {
+	return entities.TeamYear{
 		Id: UuidV7.NewUuidv7(),
 		TeamId: team.Id,
 		Name: team.Name,
