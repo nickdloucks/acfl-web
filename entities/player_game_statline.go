@@ -4,65 +4,65 @@ package entities
 
 type PlayerGameStatLine struct {
 	// --- Ids:
-	Id           string // primary-key
-	GameEventId  string // (foreign key)
-	PlayerYearId string // (foreign key)
-	TeamYearId   string // (foreign key)
+	Id           string `json:"id"` // primary-key
+	GameEventId  string `json:"game_event_id"` // (foreign key)
+	PlayerYearId string `json:"player_year_id"` // (foreign key)
+	TeamYearId   string `json:"team_year_id"` // (foreign key)
 
 	// --- Single-Game CSV stats file output:
 	// Player info:
-	Position  PlayerPosition
-	FirstName string
-	LastName  string
+	Position  PlayerPosition `json:"Position"`
+	FirstName string         `json:"FirstName"`
+	LastName  string         `json:"LastName"`
 	// ---------Stats:-------------
 	// NOTE: any yardage stat could be positive or negative.
 	// Most non-yardage quantities are >= 0
 	// Stats with "Longest" in the name refer to yardage on single plays,
 	// thus the following contraints apply:  -120 <= LongestX <= 120
 	// In the most extreme case, a single play could only extend from the back of one endzone to the back of the other
-	QBCompletions       uint8
-	QBAttempts          uint8
-	QBPassYards         int16
-	QBPassTDs           uint8
-	QBInts              uint8
-	QBLongestPass       int8
-	QBTimesSacked       uint8
-	RushAttempts        uint8
-	RushYards           int16
-	RushTDs             uint8
-	LongestRush         int8
-	Fumbles             uint8
-	Receptions          uint8
-	ReceivingYards      int16
-	ReceivingTDs        uint8
-	LongestReception    int8
-	YardsAfterCatch     int16
-	Drops               uint8
-	Targets             uint8
-	Tackles             uint8
-	Sacks               uint8
-	Interceptions       uint8
-	KnockDowns          uint8
-	ForcedFumbles       uint8
-	FumbleRecoveries    uint8
-	FumbleRecoveryYards int16
-	DefensiveTDs        uint8
-	TacklesForLoss      uint8
-	Safeties            uint8
-	Penalties           uint8
-	PenaltyYards        int16
-	FGMade              uint8
-	FGAttempted         uint8
-	XPMade              uint8
-	XPAttempted         uint8
-	Punts               uint8
-	PuntsInside20       uint8
-	PuntTouchbacks      uint8
-	PuntYards           int16
-	PuntReturns         uint8
-	PuntReturnYards     int16
-	PuntReturnTDs       uint8
-	KickReturnYards     int16
-	KickReturns         uint8
-	KickReturnTDs       uint8
+	QBCompletions       uint8 `json:"QBCompletions"`
+	QBAttempts          uint8 `json:"QBAttempts"`
+	QBPassYards         int16 `json:"QBPassYards"`
+	QBPassTDs           uint8 `json:"QBPassTDs"`
+	QBInts              uint8 `json:"QBInts"`
+	QBLongestPass       int8  `json:"QBLongestPass"`
+	QBTimesSacked       uint8 `json:"QBTimesSacked"`
+	RushAttempts        uint8 `json:"RushAttempts"`
+	RushYards           int16 `json:"RushYards"`
+	RushTDs             uint8 `json:"RushTDs"`
+	LongestRush         int8  `json:"LongestRush"`
+	Fumbles             uint8 `json:"Fumbles"`
+	Receptions          uint8 `json:"Receptions"`
+	ReceivingYards      int16 `json:"ReceivingYards"`
+	ReceivingTDs        uint8 `json:"ReceivingTDs"`
+	LongestReception    int8  `json:"LongestReception"`
+	YardsAfterCatch     int16 `json:"YardsAfterCatch"`
+	Drops               uint8 `json:"Drops"`
+	Targets             uint8 `json:"Targets"`
+	Tackles             uint8 `json:"Tackles"`
+	Sacks               uint8 `json:"Sacks"`
+	Interceptions       uint8 `json:"Interceptions"`
+	KnockDowns          uint8 `json:"KnockDowns"`
+	ForcedFumbles       uint8 `json:"ForcedFumbles"`
+	FumbleRecoveries    uint8 `json:"FumbleRecoveries"`
+	FumbleRecoveryYards int16 `json:"FumbleRecoveryYards"`
+	DefensiveTDs        uint8 `json:"DefensiveTDs"`
+	TacklesForLoss      uint8 `json:"TacklesForLoss"`
+	Safeties            uint8 `json:"Safeties"`
+	Penalties           uint8 `json:"Penalties"`
+	PenaltyYards        int16 `json:"PenaltyYards"`
+	FGMade              uint8 `json:"FGMade"`
+	FGAttempted         uint8 `json:"FGAttempted"`
+	XPMade              uint8 `json:"XPMade"`
+	XPAttempted         uint8 `json:"XPAttempted"`
+	Punts               uint8 `json:"Punts"`
+	PuntsInside20       uint8 `json:"PuntsInside20"`
+	PuntTouchbacks      uint8 `json:"PuntTouchbacks"`
+	PuntYards           int16 `json:"PuntYards"`
+	PuntReturns         uint8 `json:"PuntReturns"`
+	PuntReturnYards     int16 `json:"PuntReturnYards"`
+	PuntReturnTDs       uint8 `json:"PuntReturnTDs"`
+	KickReturnYards     int16 `json:"KickReturnYards"`
+	KickReturns         uint8 `json:"KickReturns"`
+	KickReturnTDs       uint8 `json:"KickReturnTDs"`
 }
