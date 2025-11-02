@@ -13,12 +13,27 @@ type TeamYear struct {
 }
 
 type TeamYearUpdatableConfig struct {
-	Abrv       string `json:"abrv"` // unique, abbreviation for the team name
-	City       string `json:"home_city"`
-	Conference string `json:"conference"` // foreign key
-	Color1     string `json:"color_1"`    // hex color code
-	Color2     string `json:"color_2"`    // hex color code
-	Color3     string `json:"color_3"`    // hex color code
-	Color4     string `json:"color_4"`    // hex color code
+	Abrv       string   `json:"abrv"` // unique, abbreviation for the team name
+	City       string   `json:"home_city"`
+	Conference string   `json:"conference"` // foreign key
+	Color1     ColorStr `json:"color_1"`    // hex color code
+	Color2     ColorStr `json:"color_2"`    // hex color code
+	Color3     ColorStr `json:"color_3"`    // hex color code
+	Color4     ColorStr `json:"color_4"`    // hex color code
 }
+
+func NewTeamYear(config TeamYearUpdatableConfig) (*TeamYear, error) {
+
+	return &TeamYear{
+		// Conference:
+		TeamYearUpdatableConfig: TeamYearUpdatableConfig{
+			Color1: validateColor(config.Color1),
+			Color2: validateColor(config.Color2),
+			Color3: validateColor(config.Color3),
+			Color4: validateColor(config.Color4),
+		},
+	}, nil
+}
+
+
 
