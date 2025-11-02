@@ -1,7 +1,6 @@
 package entities
 
 // PLAYER SINGLE-GAME STAT-LINE:
-
 type PlayerGameStatLine struct {
 	// --- Ids:
 	Id           string `json:"id"` // primary-key
@@ -14,6 +13,19 @@ type PlayerGameStatLine struct {
 	Position  PlayerPosition `json:"Position"`
 	FirstName string         `json:"FirstName"`
 	LastName  string         `json:"LastName"`
+	GameStatLine	
+}
+
+// A Team's single game statline is an aggregate of all the player game stat lines 
+// for that team in that game.
+type TeamGameStatLine struct {
+	Id           string `json:"id"` // primary-key
+	GameEventId  string `json:"game_event_id"` // (foreign key)
+	TeamYearId   string `json:"team_year_id"` // (foreign key)
+	GameStatLine
+}
+
+type GameStatLine struct {
 	// ---------Stats:-------------
 	// NOTE: any yardage stat could be positive or negative.
 	// Most non-yardage quantities are >= 0
