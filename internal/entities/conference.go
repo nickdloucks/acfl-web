@@ -2,6 +2,7 @@ package entities
 
 import (
 	"errors"
+	"strings"
 )
 
 type Conference struct {
@@ -90,7 +91,7 @@ func NewConference(
 	ccg string,
 	config ConfAdjustableConfig,
 ) (*Conference, error) {
-
+	abrv = strings.ToUpper(abrv)
 	if id == "" {
 		return nil, errors.New("conference id cannot be empty")
 	}
