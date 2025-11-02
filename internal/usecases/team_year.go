@@ -13,7 +13,7 @@ type TeamYearRepository interface {
 	FindByTeamIdAndYear(teamId entities.UuidV7Str, year uint8) (entities.TeamYear, error)
 }
 
-func NewInitialTeamYear(team entities.Team, year uint16, config entities.TeamYearUpdatableConfig, p entities.UuidV7Provider) entities.TeamYear {
+func NewInitialTeamYear(team entities.Team, year uint16, config entities.TeamYearUpdatableConfig, p UuidV7Provider) entities.TeamYear {
 	return entities.TeamYear{
 		Id: p.NewUuidV7(),
 		TeamId: team.Id,
