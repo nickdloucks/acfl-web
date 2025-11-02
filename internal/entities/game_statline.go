@@ -3,30 +3,28 @@ package entities
 // PLAYER SINGLE-GAME STAT-LINE:
 type PlayerGameStatLine struct {
 	// --- Ids:
-	Id           string `json:"id"` // primary-key
-	GameEventId  string `json:"game_event_id"` // (foreign key)
-	PlayerYearId string `json:"player_year_id"` // (foreign key)
-	TeamYearId   string `json:"team_year_id"` // (foreign key)
-
-	// --- Single-Game CSV stats file output:
-	// Player info:
+	Id           UuidV7Str `json:"id"`             // primary-key
+	GameEventId  UuidV7Str `json:"game_event_id"`  // (foreign key)
+	PlayerYearId UuidV7Str `json:"player_year_id"` // (foreign key)
+	TeamYearId   UuidV7Str `json:"team_year_id"`   // (foreign key)
+	// --- Player info:
 	Position  PlayerPosition `json:"Position"`
 	FirstName string         `json:"FirstName"`
 	LastName  string         `json:"LastName"`
-	GameStatLine	
+	GameStatLine
 }
 
-// A Team's single game statline is an aggregate of all the player game stat lines 
+// A Team's single game statline is an aggregate of all the player game stat lines
 // for that team in that game.
 type TeamGameStatLine struct {
-	Id           string `json:"id"` // primary-key
-	GameEventId  string `json:"game_event_id"` // (foreign key)
-	TeamYearId   string `json:"team_year_id"` // (foreign key)
+	Id          UuidV7Str `json:"id"`            // primary-key
+	GameEventId UuidV7Str `json:"game_event_id"` // (foreign key)
+	TeamYearId  UuidV7Str `json:"team_year_id"`  // (foreign key)
 	GameStatLine
 }
 
 type GameStatLine struct {
-	// ---------Stats:-------------
+	// ---------Stats tracked in game simulation CSV file output:-------------
 	// NOTE: any yardage stat could be positive or negative.
 	// Most non-yardage quantities are >= 0
 	// Stats with "Longest" in the name refer to yardage on single plays,

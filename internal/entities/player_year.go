@@ -1,10 +1,10 @@
 package entities
 
 type PlayerYear struct {
-	Id       string         `json:"id"`        // primary key
-	PlayerId string         `json:"player_id"` // foreign key to Player
+	Id       UuidV7Str      `json:"id"`        // primary key
+	PlayerId UuidV7Str      `json:"player_id"` // foreign key to Player
 	Year     uint16         `json:"year"`
-	TeamId   string         `json:"team"` // foreign key to TeamYear
+	TeamId   UuidV7Str      `json:"team"` // foreign key to TeamYear
 	Position PlayerPosition `json:"position"`
 }
 

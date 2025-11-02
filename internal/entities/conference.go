@@ -1,7 +1,7 @@
 package entities
 
 type Conference struct {
-	Id               string    `json:"id"`   // primary key, uuid
+	Id               UuidV7Str `json:"id"`   // primary key, uuid
 	Name             string    `json:"name"` // unique
 	Abrv             string    `json:"abrv"` // unique, abbreviation for the conference name
 	ChampionshipGame MatchName `json:"championship_game"`
