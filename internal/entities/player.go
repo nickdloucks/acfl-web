@@ -9,6 +9,4 @@ type Player struct {
 	// TO-DO: fields for skills?
 }
 
-type PlayerRepository interface {
-	FindById(id UuidV7Str) (Player, error)
-}
+

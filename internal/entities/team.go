@@ -8,9 +8,3 @@ type Team struct {
 	Id   UuidV7Str `json:"id"`   // primary key, uuid
 	Name string    `json:"name"` // unique
 }
-
-type TeamRepository interface {
-	Create(name string) error
-	BulkCreate(names []string) error
-	FindById(id UuidV7Str) (Team, error)
-}

@@ -8,12 +8,6 @@ type PlayerYear struct {
 	Position PlayerPosition `json:"position"`
 }
 
-type PlayerYearRepository interface {
-	CreateInitialPlayerYear(player Player) (PlayerYear, error)
-	CreateSubsequentPlayerYear(player Player) (PlayerYear, error)
-	AssignToRoster(py PlayerYear) error
-}
-
 type PlayerPosition string
 
 const (

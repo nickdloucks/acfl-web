@@ -4,9 +4,18 @@ import (
 	"nickdloucks/acfl-web/internal/entities"
 )
 
-func NewInitialTeamYear(team entities.Team, year uint16, config entities.TeamYearUpdatableConfig) entities.TeamYear {
+
+type TeamYearRepository interface {
+	CreateInitialYear(team entities.Team, year uint8, config entities.TeamYearUpdatableConfig) (entities.TeamYear, error)
+	CreateSubsequentYear(team entities.Team, year uint8, config ...entities.TeamYearUpdatableConfig) (entities.TeamYear, error)
+	FindById(id entities.UuidV7Str) (entities.TeamYear, error)
+	FindByNameAndYear(name string, year uint8) (entities.TeamYear, error)
+	FindByTeamIdAndYear(teamId entities.UuidV7Str, year uint8) (entities.TeamYear, error)
+}
+
+func NewInitialTeamYear(team entities.Team, year uint16, config entities.TeamYearUpdatableConfig, p entities.UuidV7Provider) entities.TeamYear {
 	return entities.TeamYear{
-		Id: UuidV7.NewUuidv7(),
+		Id: p.NewUuidV7(),
 		TeamId: team.Id,
 		Name: team.Name,
 		Year: year,
