@@ -4,6 +4,27 @@ import "strings"
 
 type UuidV7Str string // A uuid v7 string.
 
+type GameStatus string // Enumerated categorization of a game's current state.
+
+const (
+	TBA        GameStatus = "TBA" // not yet scheduled
+	Upcoming   GameStatus = "UPCOMING"
+	InProgress GameStatus = "IN-PROGRESS"
+	Final      GameStatus = "FINAL"
+)
+
+var IntToGameStatus = map[int]GameStatus{
+	1: TBA,
+	2: Upcoming,
+	3: InProgress,
+	4: Final,
+}
+var StrToGameStatus = map[string]GameStatus{
+	"TBA":         TBA,
+	"UPCOMING":    Upcoming,
+	"IN-PROGRESS": InProgress,
+	"FINAL":       Final,
+}
 
 // --- Color Hex String ---
 type ColorStr string // hex color code with a leading "#" character i.e. "#0f0f0f"

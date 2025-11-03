@@ -14,7 +14,7 @@ type MatchEvent struct {
 	MatchName   MatchName `json:"match_name"`   // indicates the match's place in the schedule for the year
 	NeutralSite bool      `json:"neutral_site"` // indicates whether the game was played at a neutral site
 	// if the match was played at a neutral site, then the "Home" team is the team with the better rank entering the match
-	Overtime uint8          `json:"overtime"` // default is 0; counts ovetime periods if there are 1 or more
-	Status   CompUnitStatus `json:"status"`
-	Year     uint16         `json:"year"`
+	Overtime uint8      `json:"overtime"` // default is 0; counts ovetime periods if there are 1 or more
+	Status   GameStatus `json:"status"`
+	Year     uint16     `json:"year"`
 }
