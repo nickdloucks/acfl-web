@@ -6,7 +6,7 @@ import (
 
 func TestValidateColor(t *testing.T) {
 	t.Run("returns default color if string too long", func(t *testing.T) {
-		got := validateColor("Bad-input")
+		got := validateColor("1234567890")
 		want := ColorStr("#363636")
 		if got != want {
 			t.Errorf("got %s, want %s", got, want)
