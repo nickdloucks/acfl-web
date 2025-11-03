@@ -1,5 +1,12 @@
 package entities
 
+import (
+	"errors"
+	"strings"
+	"unicode"
+	"unicode/utf8"
+)
+
 type MatchName string
 
 const (
@@ -54,6 +61,27 @@ var StringToMatchName = map[string]MatchName{
 	"Anchor Bowl": AnchorBowl,
 	"Ax Bowl":     AxBowl,
 	"Alpine Bowl": AlpineBowl,
+}
+
+func validateMatchName(name string) (validatedStr string, err error) {
+	if name == "" {
+		return "", errors.New("invalid match name: empty")
+	}
+	parts := strings.Split(name, " ")
+	capitalizedParts := []string{}
+	for _, item := range parts {
+		r, size := utf8.DecodeRuneInString(item)
+		if r == utf8.RuneError {
+			return "", errors.New("invalid match name")
+		}
+		item = string(unicode.ToUpper(r)) + item[size:]
+		capitalizedParts = append(capitalizedParts, item)
+	}
+	name = strings.Join(capitalizedParts, " ")
+	if _, ok := StringToMatchName[name]; ok {
+		return name, nil
+	}
+	return "", errors.New("invalid match name")
 }
 
 // TO-DO: a Shedule is really just an ordered list of MatchResults
