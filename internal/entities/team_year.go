@@ -27,10 +27,10 @@ func NewTeamYear(config TeamYearUpdatableConfig) (*TeamYear, error) {
 	return &TeamYear{
 		// Conference:
 		TeamYearUpdatableConfig: TeamYearUpdatableConfig{
-			Color1: validateColor(config.Color1),
-			Color2: validateColor(config.Color2),
-			Color3: validateColor(config.Color3),
-			Color4: validateColor(config.Color4),
+			Color1: validateColor(string(config.Color1)),
+			Color2: validateColor(string(config.Color2)),
+			Color3: validateColor(string(config.Color3)),
+			Color4: validateColor(string(config.Color4)),
 		},
 	}, nil
 }

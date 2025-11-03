@@ -4,9 +4,8 @@ import (
 	"testing"
 )
 
-func TestvalidateConfName(t *testing.T) {
-	t.Run("returns a valid name", func(t *testing.T) {
-
+func TestValidateConfName(t *testing.T) {
+	t.Run("returns no error when given a valid name", func(t *testing.T) {
 		got := validateConfName("Marine Conference")
 		if got != nil {
 			t.Errorf("got %s, want nil", got.Error())
