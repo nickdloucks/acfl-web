@@ -63,21 +63,29 @@ var StringToMatchName = map[string]MatchName{
 	"Alpine Bowl": AlpineBowl,
 }
 
-func validateMatchName(name string) (validatedStr string, err error) {
-	if name == "" {
-		return "", errors.New("invalid match name: empty")
+func capitalizeWords(input string) (string, error) {
+	if input == "" {
+		return "", errors.New("invalid input: empty")
 	}
-	parts := strings.Split(name, " ")
+	parts := strings.Split(input, " ")
 	capitalizedParts := []string{}
 	for _, item := range parts {
 		r, size := utf8.DecodeRuneInString(item)
 		if r == utf8.RuneError {
-			return "", errors.New("invalid match name")
+			return "", errors.New("invalid input")
 		}
 		item = string(unicode.ToUpper(r)) + item[size:]
 		capitalizedParts = append(capitalizedParts, item)
 	}
-	name = strings.Join(capitalizedParts, " ")
+	input = strings.Join(capitalizedParts, " ")
+	return input, nil
+}
+
+func validateMatchName(name string) (validatedStr string, err error) {
+	name, err = capitalizeWords(name)
+	if err != nil {
+		return "", err
+	}
 	if _, ok := StringToMatchName[name]; ok {
 		return name, nil
 	}
