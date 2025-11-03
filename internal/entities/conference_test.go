@@ -8,7 +8,7 @@ func TestValidateConfName(t *testing.T) {
 	t.Run("returns error with bad input name", func(t *testing.T){
 		got := validateConfName("fake conference")
 		if got == nil {
-			t.Errorf("got %s, want an error", got.Error())
+			t.Errorf("got %s, want an error", got)
 		}
 	})
 	t.Run("returns no error when given a valid name", func(t *testing.T) {
@@ -23,11 +23,26 @@ func TestValidateConfAbrv(t *testing.T) {
 	t.Run("returns error with bad input name", func(t *testing.T){
 		got := validateConfAbrv("fake conference abrv")
 		if got == nil {
-			t.Errorf("got %s, want an error", got.Error())
+			t.Errorf("got %s, want an error", got)
 		}
 	})
 	t.Run("returns no error when given a valid name", func(t *testing.T) {
 		got := validateConfAbrv("MC")
+		if got != nil {
+			t.Errorf("got %s, want nil", got.Error())
+		}
+	})
+}
+
+func TestValidateConfTitleGameStr(t *testing.T) {
+	t.Run("returns error with bad input name", func(t *testing.T){
+		got := validateConfTitleGameStr("fake conference title game")
+		if got == nil {
+			t.Errorf("got %s, want an error", got)
+		}
+	})
+	t.Run("returns no error when given a valid name", func(t *testing.T) {
+		got := validateConfTitleGameStr("Ax Bowl")
 		if got != nil {
 			t.Errorf("got %s, want nil", got.Error())
 		}
