@@ -1,5 +1,11 @@
 package entities
 
+import (
+	"errors"
+	"strings"
+)
+
+
 type PlayerYear struct {
 	Id       UuidV7Str      `json:"id"`        // primary key
 	PlayerId UuidV7Str      `json:"player_id"` // foreign key to Player
@@ -64,4 +70,12 @@ var StringToPosition = map[string]PlayerPosition{
 	// --- SPECIAL TEAMS POSITIONS:
 	"K": K,
 	"P": P,
+}
+
+func validatePlayerPosition(position string) error {
+	position = strings.ToUpper(position)
+	if _, ok := StringToPosition[position]; ok {
+		return nil
+	}
+	return errors.New("invalid player position")
 }
