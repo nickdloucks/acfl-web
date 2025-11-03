@@ -21,4 +21,14 @@ func TestValidateMatchName(t *testing.T) {
 			t.Errorf("got %s, want %s", got, want)
 		}
 	})
+	t.Run("returns formatted string and nil if input is good and includes number",  func(t *testing.T) {
+		got, err := validateMatchName("game 2")
+		if err != nil {
+			t.Errorf("got %s from error return val, want nil", err.Error())
+		}
+		want := "Game 2"
+		if got != want {
+			t.Errorf("got %s, want %s", got, want)
+		}
+	})
 }
