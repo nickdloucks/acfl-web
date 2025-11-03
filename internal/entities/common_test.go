@@ -27,3 +27,18 @@ func TestValidateColor(t *testing.T) {
 		}
 	})
 }
+
+func TestValidateGameStatus(t *testing.T) {
+	t.Run("return an error if input is invalid", func(t *testing.T) {
+		got := validateGameStatus("bad input")
+		if got == nil {
+			t.Errorf("got nil, want an error")
+		}
+	})
+	t.Run("return nil if input is a valid game status", func(t *testing.T) {
+		got := validateGameStatus("FINAL")
+		if got != nil {
+			t.Errorf("got %s, want nil", got.Error())
+		}
+	})
+}

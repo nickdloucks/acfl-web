@@ -1,6 +1,7 @@
 package entities
 
 import (
+	"errors"
 	"log"
 	"strings"
 )
@@ -139,4 +140,12 @@ func validateColor(color string) ColorStr {
 		}
 		return ColorStr("#" + color)
 	}
+}
+
+func validateGameStatus(status string) error {
+	status = strings.ToUpper(status)
+	if _, ok := StrToGameStatus[status]; ok {
+		return nil
+	}
+	return errors.New("invalid game status string")
 }
