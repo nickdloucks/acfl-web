@@ -1,6 +1,9 @@
 package entities
 
-import "strings"
+import (
+	"log"
+	"strings"
+)
 
 type UuidV7Str string // A uuid v7 string.
 
@@ -30,43 +33,110 @@ var StrToGameStatus = map[string]GameStatus{
 type ColorStr string // hex color code with a leading "#" character i.e. "#0f0f0f"
 
 const (
-	BLACK          ColorStr = "#000000"
-	WHITE          ColorStr = "#ffffff"
-	DARKGREY       ColorStr = "#1f1f1f"
-	MEDGREY        ColorStr = "#363636"
-	GREY           ColorStr = "#818181"
-	LIGHTGREY      ColorStr = "#999999"
-	EXTRALIGHTGREY ColorStr = "#cccccc"
-	BROWN          ColorStr = "#8b3613"
-	RED            ColorStr = "#ff0000"
-	ORANGE         ColorStr = "#ff6100"
-	YELLOW         ColorStr = "#ffff00"
-	GREEN          ColorStr = "#008800"
-	OLIVE          ColorStr = "#556b2f"
-	BLUE           ColorStr = "#0000ff"
-	LIGHTBLUE      ColorStr = "#00bfff"
-	INDIGO         ColorStr = "#"
-	NAVY           ColorStr = "#"
-	VIOLET         ColorStr = "#"
-	PURPLE         ColorStr = "#4b0082"
-	// LIME      ColorStr = "#"
+	BLACK     ColorStr = "#000000"
+	WHITE     ColorStr = "#ffffff"
+	DARKGREY  ColorStr = "#1f1f1f"
+	MEDGREY   ColorStr = "#363636"
+	GREY      ColorStr = "#818181"
+	LIGHTGREY ColorStr = "#999999"
+	// EXTRALIGHTGREY ColorStr = "#cccccc"
+	BROWN     ColorStr = "#8b3613"
+	RED       ColorStr = "#ff0000"
+	ORANGE    ColorStr = "#ff6100"
+	YELLOW    ColorStr = "#ffff00"
+	GREEN     ColorStr = "#008800"
+	OLIVE     ColorStr = "#556b2f"
+	LIME      ColorStr = "#32cd32"
+	BLUE      ColorStr = "#0000ff"
+	LIGHTBLUE ColorStr = "#00bfff"
+	// INDIGO         ColorStr = "#4b0082"
+	NAVY     ColorStr = "#00008b"
+	VIOLET   ColorStr = "#7f00ff"
+	PURPLE   ColorStr = "#4b0082"
+	GOLD     ColorStr = "#d4af37"
+	SILVER1  ColorStr = "#bcc6cc"
+	SILVER2  ColorStr = "#999b9b"
+	GRAPHITE ColorStr = "#a8afb1"
+	JET      ColorStr = "#373635"
+	SILVER3  ColorStr = "#eeeeee"
+	SILVER4  ColorStr = "#cccccc"
+	SILVER5  ColorStr = "#bbbbbb"
+	SILVER6  ColorStr = "#aaaaaa"
+	SILVER7  ColorStr = "#777777"
+	CCOPPER  ColorStr = "#b87333"
 )
 
-var ColorPresets = map[string]ColorStr{}
+var ColorPresets = map[string]ColorStr{
+	"#000000": BLACK,
+	"#ffffff": WHITE,
+	"#1f1f1f": DARKGREY,
+	"#363636": MEDGREY,
+	"#818181": GREY,
+	"#999999": LIGHTGREY,
+	// "#cccccc": EXTRALIGHTGREY,
+	"#8b3613": BROWN,
+	"#ff0000": RED,
+	"#ff6100": ORANGE,
+	"#ffff00": YELLOW,
+	"#008800": GREEN,
+	"#556b2f": OLIVE,
+	"#32cd32": LIME,
+	"#0000ff": BLUE,
+	"#00bfff": LIGHTBLUE,
+	// "#4b0082": INDIGO,
+	"#00008b": NAVY,
+	"#7f00ff": VIOLET,
+	"#4b0082": PURPLE,
+	"#d4af37": GOLD,
+	"#bcc6cc": SILVER1,
+	"#999b9b": SILVER2,
+	"#a8afb1": GRAPHITE,
+	"#373635": JET,
+	"#eeeeee": SILVER3,
+	"#cccccc": SILVER4,
+	"#bbbbbb": SILVER5,
+	"#aaaaaa": SILVER6,
+	"#777777": SILVER7,
+	"#b87333": CCOPPER,
+}
 
-// Validates the hex string is a valid color and returns a default grey color hex string if it is not.
+var hexRunes = map[rune]bool{
+	'a': true,
+	'b': true,
+	'c': true,
+	'd': true,
+	'e': true,
+	'f': true,
+	'1': true,
+	'2': true,
+	'3': true,
+	'4': true,
+	'5': true,
+	'6': true,
+	'7': true,
+	'8': true,
+	'9': true,
+}
+
+// Validates a color string.
+// Expects a 6-character hex string prefixed with "#".
+// Returns a default (#363636) grey color hex string if input is invald.
 func validateColor(color string) ColorStr {
+	defaultColor := "#363636"
 	color = strings.ToLower(color)
-	if _, ok := ColorPresets[color]; ok {
-		return ColorStr(color)
-	}
-	if !strings.HasPrefix(color, "#") {
-		color = "#" + color
-	}
-	if len(color) <= 4 {
-		// if color hex is only 3 characters, duplicate it so that it is 6
+	if validated, ok := ColorPresets[color]; ok {
+		log.Println("color: " + ColorPresets[color])
+		return validated
+	} else {
 		color = strings.Trim(color, "#")
-		color = "#" + color + color
+		if len(color) != 6 {
+			return ColorStr(defaultColor)
+		}
+		for _, char := range color {
+			if _, ok := hexRunes[char]; !ok {
+				return ColorStr(defaultColor)
+			}
+		}
+		return ColorStr("#" + color)
 	}
-	return ColorStr(color)
 }
