@@ -5,6 +5,12 @@ import (
 )
 
 func TestValidateConfName(t *testing.T) {
+	t.Run("returns error with bad input name", func(t *testing.T){
+		got := validateConfName("fake conference")
+		if got == nil {
+			t.Errorf("got %s, want an error", got.Error())
+		}
+	})
 	t.Run("returns no error when given a valid name", func(t *testing.T) {
 		got := validateConfName("Marine Conference")
 		if got != nil {
@@ -13,10 +19,17 @@ func TestValidateConfName(t *testing.T) {
 	})
 }
 
-// func TestNewConference(t *testing.T) {
-// 	got := NewConference(
-// 		UuidV7Str("uuid-v7-string-here"),
-// 		"test-name",
-// 		"Ax Bowl",
-// 	)
-// }
+func TestValidateConfAbrv(t *testing.T) {
+	t.Run("returns error with bad input name", func(t *testing.T){
+		got := validateConfAbrv("fake conference abrv")
+		if got == nil {
+			t.Errorf("got %s, want an error", got.Error())
+		}
+	})
+	t.Run("returns no error when given a valid name", func(t *testing.T) {
+		got := validateConfAbrv("MC")
+		if got != nil {
+			t.Errorf("got %s, want nil", got.Error())
+		}
+	})
+}
