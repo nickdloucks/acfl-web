@@ -41,15 +41,16 @@ const (
 	GREY      ColorStr = "#818181"
 	LIGHTGREY ColorStr = "#999999"
 	// EXTRALIGHTGREY ColorStr = "#cccccc"
-	BROWN     ColorStr = "#8b3613"
-	RED       ColorStr = "#ff0000"
-	ORANGE    ColorStr = "#ff6100"
-	YELLOW    ColorStr = "#ffff00"
-	GREEN     ColorStr = "#008800"
-	OLIVE     ColorStr = "#556b2f"
-	LIME      ColorStr = "#32cd32"
-	BLUE      ColorStr = "#0000ff"
-	LIGHTBLUE ColorStr = "#00bfff"
+	BROWN      ColorStr = "#8b3613"
+	RED        ColorStr = "#ff0000"
+	ORANGE     ColorStr = "#ff6100"
+	YELLOW     ColorStr = "#ffff00"
+	GREEN      ColorStr = "#008800"
+	OLIVE      ColorStr = "#556b2f"
+	LIGHTGREEN ColorStr = "#32cd32"
+	LIME       ColorStr = "#00ff00"
+	BLUE       ColorStr = "#0000ff"
+	LIGHTBLUE  ColorStr = "#00bfff"
 	// INDIGO         ColorStr = "#4b0082"
 	NAVY     ColorStr = "#00008b"
 	VIOLET   ColorStr = "#7f00ff"
@@ -64,7 +65,8 @@ const (
 	SILVER5  ColorStr = "#bbbbbb"
 	SILVER6  ColorStr = "#aaaaaa"
 	SILVER7  ColorStr = "#777777"
-	CCOPPER  ColorStr = "#b87333"
+	SILVER8  ColorStr = "#c0c0c0"
+	COPPER   ColorStr = "#b87333"
 )
 
 var ColorPresets = map[string]ColorStr{
@@ -81,7 +83,8 @@ var ColorPresets = map[string]ColorStr{
 	"#ffff00": YELLOW,
 	"#008800": GREEN,
 	"#556b2f": OLIVE,
-	"#32cd32": LIME,
+	"#00ff00": LIME,
+	"#32cd32": LIGHTGREEN,
 	"#0000ff": BLUE,
 	"#00bfff": LIGHTBLUE,
 	// "#4b0082": INDIGO,
@@ -98,7 +101,8 @@ var ColorPresets = map[string]ColorStr{
 	"#bbbbbb": SILVER5,
 	"#aaaaaa": SILVER6,
 	"#777777": SILVER7,
-	"#b87333": CCOPPER,
+	"#c0c0c0": SILVER8,
+	"#b87333": COPPER,
 }
 
 var hexRunes = map[rune]bool{
