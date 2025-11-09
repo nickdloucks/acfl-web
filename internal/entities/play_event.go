@@ -36,10 +36,10 @@ const (
 
 type PlayBeginState struct {
 	StartTime            TimeRemainingStr `json:"start_time"`
-	TeamInPossession     string           `json:"team_in_possession_strt"`
-	StartingYdLine       int8             `json:"starting_yd_line"`
-	Down                 uint8            `json:"start_down"`
-	Distance             uint8            `json:"start_distance"`
+	TeamInPossession     string           `json:"team_in_possession_start"`
+	StartYdLine          int8             `json:"start_yd_line"`
+	CurrentDown          uint8            `json:"current_down"`
+	CurrentDistance      uint8            `json:"current_distance"`
 	Offense              string           `json:"offense"` // Team.Abrv
 	Defense              string           `json:"defense"` // Team.Abrv
 	OffensePlaySelection string           `json:"off_play_selection"`
@@ -49,19 +49,20 @@ type PlayBeginState struct {
 type PlayEndState struct {
 	EndTime          TimeRemainingStr `json:"end_time"`
 	TeamInPossession string           `json:"team_in_possession_end"`
-	EndingYdLine     int8             `json:"ending_yd_line"`
-	Down             uint8            `json:"end_down"`
-	Distance         uint8            `json:"end_distance"`
+	EndYdLine        int8             `json:"end_yd_line"`
+	NextDown         uint8            `json:"next_down"`
+	NextDistance     uint8            `json:"next_distance"`
 	PlayEndReason    PlayEndReason    `json:"play_end_reason"`
 }
 
 type PlayEvent struct {
-	Id             UuidV7Str      `json:"id"`
-	Home           string         `json:"home"` // Team.Abrv
-	Away           string         `json:"away"` // Team.Abrv
-	Quarter        GameQuarter    `json:"quarter"`
-	Turnovers      uint8          `json:"turnovers"` // values of 0 or 1 can be parsed as a bool, while higher numbers can still be used in the rare scenario where there are multiple turnovers on the same play
-	PointsScored   uint8          `json:"points_scored"`
-	PlayBeginState PlayBeginState `json:"play_begin_tate"`
-	PlayEndState   PlayEndState   `json:"play_end_state"`
+	Id                 UuidV7Str   `json:"id"`
+	Home               string      `json:"home"` // Team.Abrv
+	Away               string      `json:"away"` // Team.Abrv
+	Quarter            GameQuarter `json:"quarter"`
+	IsSpecialTeamsPlay bool        `json:"is_special_teams_play"`
+	Turnovers          uint8       `json:"turnovers"` // values of 0 or 1 can be parsed as a bool, while higher numbers can still be used in the rare scenario where there are multiple turnovers on the same play
+	PointsScored       uint8       `json:"points_scored"`
+	PlayBeginState
+	PlayEndState
 }
