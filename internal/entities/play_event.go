@@ -61,14 +61,15 @@ type PlayEvent struct {
 	Home               string      `json:"home"`    // Team.Abrv foreign key
 	Away               string      `json:"away"`    // Team.Abrv foreign key
 	Quarter            GameQuarter `json:"quarter"`
-	IsSpecialTeamsPlay bool        `json:"is_special_teams_play"` // default false
-	Turnovers          uint8       `json:"turnovers"`             // values of 0 or 1 can be parsed as a bool, while higher numbers can still be used in the rare scenario where there are multiple turnovers on the same play
+	DriveId            UuidV7Str   `json:"drive_id"`  // will this work with the queue processing plan above? might need to be set before parallel processing
+	Turnovers          uint8       `json:"turnovers"` // values of 0 or 1 can be parsed as a bool, while higher numbers can still be used in the rare scenario where there are multiple turnovers on the same play
 	PointsScored       uint8       `json:"points_scored"`
+	IsSpecialTeamsPlay bool        `json:"is_special_teams_play"` // default false
+	RushPlay           bool        `json:"rush_play"`
+	PassPlay           bool        `json:"pass_play"`
+	PlayAction         bool        `json:"play_action"`
+	BlitzPlay          bool        `json:"blitz_play"`
+	NetYards           int8        `json:"net_yards"` // since this is a single play event, this number should fit in int8, but may need conversion for aggragating into game stats
 	PlayBeginState
 	PlayEndState
-	RushPlay   bool `json:"rush_play"`
-	PassPlay   bool `json:"pass_play"`
-	PlayAction bool `json:"play_action"`
-	BlitzPlay  bool `json:"blitz_play"`
-	NetYards   int8 `json:"netYards"` // since this is a single play event, this number should fit in int8, but may need conversion for aggragating into game stats
 }
