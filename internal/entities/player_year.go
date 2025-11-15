@@ -5,7 +5,6 @@ import (
 	"strings"
 )
 
-
 type PlayerYear struct {
 	Id       UuidV7Str      `json:"id"`        // primary key
 	PlayerId UuidV7Str      `json:"player_id"` // foreign key to Player
@@ -78,4 +77,35 @@ func validatePlayerPosition(position string) error {
 		return nil
 	}
 	return errors.New("invalid player position")
+}
+
+type PlayerYearProfile struct { // this represents a single line record on a Roster list
+	FIRST      string `json:"FIRST"`
+	LAST       string `json:"LAST"`
+	NUMBER     uint8  `json:"NUMBER"`
+	Heigh      uint8  `json:"Heigh"`
+	Weigh      uint16 `json:"Weigh"`
+	POS        uint8  `json:"POS"`
+	AWARE      uint8  `json:"AWARE"`
+	SPEED      uint8  `json:"SPEED"`
+	TLK_BRK    uint8  `json:"TLK BRK"`
+	FUMBL      uint8  `json:"FUMBL"`
+	CATCH      uint8  `json:"CATCH"`
+	RTRN       uint8  `json:"RTRN"`
+	PAS_BLK    uint8  `json:"PAS BLK"`
+	RUN_BLK    uint8  `json:"RUN BLK"`
+	THR_PWR    uint8  `json:"THR PWR"`
+	THR_ACC    uint8  `json:"THR ACC"`
+	KCK_ACC    uint8  `json:"KCK ACC"`
+	KCK_PWR    uint8  `json:"KCK PWR"`
+	BLK_SHD    uint8  `json:"BLK SHD"`
+	PAS_RSH    uint8  `json:"PAS RSH"`
+	TACKL      uint8  `json:"TACKL"`
+	HIT_PWR    uint8  `json:"HIT PWR"`
+	M_COV      uint8  `json:"M COV"`
+	Z_COV      uint8  `json:"Z COV"`
+	FITNESS    uint8  `json:"FITNESS"`
+	DISCIPLINE uint8  `json:"DISCIPLINE"`
+	POTENTIAL  uint8  `json:"POTENTIAL"`
+	AGE        uint8  `json:"AGE"`
 }
