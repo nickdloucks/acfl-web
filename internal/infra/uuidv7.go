@@ -5,9 +5,9 @@ import (
 	googleUuid "github.com/google/uuid"
 )
 
-type GoogleUuidV7Provider struct {}
+// type UuidV7ProviderImpl struct {}
 
-func (GoogleUuidV7Provider) NewUuidV7() entities.UuidV7Str {
+func NewUuidV7() entities.UuidV7Str {
 	uuid, _ := googleUuid.NewV7()
 	str := uuid.String()
 	return entities.UuidV7Str(str)

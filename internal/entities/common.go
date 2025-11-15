@@ -7,6 +7,9 @@ import (
 )
 
 type UuidV7Str string // A uuid v7 string.
+type UuidV7ProviderInterface interface {
+	NewUuidV7() UuidV7Str
+}
 
 type GameStatus string // Enumerated categorization of a game's current state.
 
