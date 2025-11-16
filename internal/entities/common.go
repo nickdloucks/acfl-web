@@ -4,6 +4,8 @@ import (
 	"errors"
 	"log"
 	"strings"
+	"unicode"
+	"unicode/utf8"
 )
 
 type UuidV7Str string // A uuid v7 string.
@@ -156,4 +158,22 @@ func validateGameStatus(status string) error {
 		return nil
 	}
 	return errors.New("invalid game status string")
+}
+
+func capitalizeWords(input string) (string, error) {
+	if input == "" {
+		return "", errors.New("invalid input: empty")
+	}
+	parts := strings.Split(input, " ")
+	capitalizedParts := []string{}
+	for _, item := range parts {
+		r, size := utf8.DecodeRuneInString(item)
+		if r == utf8.RuneError {
+			return "", errors.New("invalid input")
+		}
+		item = string(unicode.ToUpper(r)) + item[size:]
+		capitalizedParts = append(capitalizedParts, item)
+	}
+	input = strings.Join(capitalizedParts, " ")
+	return input, nil
 }

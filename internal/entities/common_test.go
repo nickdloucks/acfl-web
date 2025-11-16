@@ -42,3 +42,11 @@ func TestValidateGameStatus(t *testing.T) {
 		}
 	})
 }
+
+func TestCapitalizeWords(t *testing.T) {
+	got, _ := capitalizeWords("hello world")
+	want := "Hello World"
+	if got != want {
+		t.Errorf("got %s want %s", got, want)
+	}
+}
