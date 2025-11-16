@@ -2,17 +2,18 @@ package entities
 
 type TimeRemainingStr string // format 00:00
 
-type GameQuarter string
+// Unsigned integer representing the Quarter number in a game. Numbers >= 4 indicate overtime.
+type GameQuarter uint8
 
 const (
-	Q1  GameQuarter = "Q1"
-	Q2  GameQuarter = "Q2"
-	Q3  GameQuarter = "Q3"
-	Q4  GameQuarter = "Q4"
-	OT1 GameQuarter = "OT1"
-	OT2 GameQuarter = "OT2"
-	OT3 GameQuarter = "OT3"
-	OT4 GameQuarter = "OT4"
+	Q1 GameQuarter = iota
+	Q2
+	Q3
+	Q4
+	OT1
+	OT2
+	OT3
+	OT4
 )
 
 type PlayEndReason string
