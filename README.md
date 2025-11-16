@@ -19,9 +19,11 @@ Each year, the ACFL hosts a league-wide single-elimination tournament before the
 
 ---
 
-- sample logo png  
+- sample logo 1 png  
 ![sample logo png](./views/assets/Aliens.png)
 
+- sample logo 2 
+![Sample logo 2 png](./views/assets/moose-right-facing.jpg)
 ---
 # Design Decisions:  
 
