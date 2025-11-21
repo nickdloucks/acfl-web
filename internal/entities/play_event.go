@@ -6,14 +6,14 @@ type TimeRemainingStr string // format 00:00
 type GameQuarter uint8
 
 const (
-	Q1 GameQuarter = iota
-	Q2
-	Q3
-	Q4
-	OT1
-	OT2
-	OT3
-	OT4
+	Q1 GameQuarter = 1
+	Q2 GameQuarter = 2
+	Q3 GameQuarter = 3
+	Q4 GameQuarter = 4
+	OT1 GameQuarter = 5
+	OT2 GameQuarter = 6
+	OT3 GameQuarter = 7
+	OT4 GameQuarter = 8
 )
 
 type PlayEndReason string
