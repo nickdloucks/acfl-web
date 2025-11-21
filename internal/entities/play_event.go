@@ -76,7 +76,6 @@ type PlayEvent struct {
 	PlayEndState
 }
 
-
 // in-play event types to get greater detail about what specific players did on a given play
 type PlayProgression string
 
@@ -85,6 +84,7 @@ type InPlayAction string // this will be constructed from InPlayEvents
 const (
 	Rush           InPlayAction = "rush"
 	Handoff        InPlayAction = "handoff"
+	Lateral        InPlayAction = "lateral"
 	Pass           InPlayAction = "pass"
 	Reception      InPlayAction = "reception"
 	Catch          InPlayAction = "catch"
@@ -98,6 +98,9 @@ const (
 	Score          InPlayAction = "score"
 	BreakTackle    InPlayAction = "break tackle"
 	Hit            InPlayAction = "hit"
+	Kick           InPlayAction = "kick"
+	Punt           InPlayAction = "punt"
+	OutOfBounds    InPlayAction = "out of bounds"
 )
 
 // ordered list of players and actions
