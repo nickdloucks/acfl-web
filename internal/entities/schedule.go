@@ -1,5 +1,9 @@
 package entities
 
+import (
+	"errors"
+)
+
 type MatchName string
 
 const (
@@ -54,6 +58,17 @@ var StringToMatchName = map[string]MatchName{
 	"Anchor Bowl": AnchorBowl,
 	"Ax Bowl":     AxBowl,
 	"Alpine Bowl": AlpineBowl,
+}
+
+func validateMatchName(name string) (validatedStr string, err error) {
+	name, err = capitalizeWords(name)
+	if err != nil {
+		return "", err
+	}
+	if _, ok := StringToMatchName[name]; ok {
+		return name, nil
+	}
+	return "", errors.New("invalid match name")
 }
 
 // TO-DO: a Shedule is really just an ordered list of MatchResults
