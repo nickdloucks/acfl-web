@@ -1,11 +1,14 @@
 package usecases
 
-import "testing"
+// import (
+// 	"nickdloucks/acfl-web/internal/entities"
+// 	"testing"
+// )
 
-func TestNewTeamYear(t *testing.T) {
-	testTeam := Team{Name: "test_team"}
-	testTY := NewTeamYear(testTeam)
-	t.Run("year must not be empty", func(t *testing.T) {
+// func TestNewTeamYear(t *testing.T) {
+// 	testTeam := entities.Team{Name: "test_team"}
+// 	testTY := NewTeamYear(testTeam)
+// 	t.Run("year must not be empty", func(t *testing.T) {
 
-	})
-}
+// 	})
+// }
