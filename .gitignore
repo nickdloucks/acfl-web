@@ -7,3 +7,5 @@
 *.DS_Store
 dev-notes/
 views/assets/*.svg
+internal/league_files/red-usb-copy_feb_2026
+internal/infra/_notes
