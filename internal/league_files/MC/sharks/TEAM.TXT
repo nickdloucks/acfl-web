@@ -1,0 +1,12 @@
+TeamCity=CLASSIC ARIZONA
+TeamName=SHARKS
+TeamAbbrev=MAKL
+PrimaryColor=0, 191, 255
+SecondaryColor=153, 153, 153
+AlternateColor=255, 255, 255
+OffPlaybook=West Coast
+DefPlaybook=Three Four
+OffPlaybookSource=Default
+DefPlaybookSource=Default
+DefScheme=THREE_FOUR
+HomeStadium=Arizona

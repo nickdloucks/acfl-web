@@ -1,0 +1,12 @@
+TeamCity=CLASSIC ARIZONA
+TeamName=COWS
+TeamAbbrev=STW
+PrimaryColor=139, 54, 19
+SecondaryColor=0, 0, 0
+AlternateColor=255, 255, 255
+OffPlaybook=West Coast
+DefPlaybook=Three Four
+OffPlaybookSource=Default
+DefPlaybookSource=Default
+DefScheme=THREE_FOUR
+HomeStadium=Arizona

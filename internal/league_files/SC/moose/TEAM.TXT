@@ -1,0 +1,12 @@
+TeamCity=CLASSIC ARIZONA
+TeamName=MOOSE
+TeamAbbrev=CTVL
+PrimaryColor=255, 0, 0
+SecondaryColor=0, 0, 0
+AlternateColor=153, 153, 153
+OffPlaybook=West Coast
+DefPlaybook=Three Four
+OffPlaybookSource=Default
+DefPlaybookSource=Default
+DefScheme=THREE_FOUR
+HomeStadium=Arizona

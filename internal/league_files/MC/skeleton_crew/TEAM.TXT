@@ -1,0 +1,12 @@
+TeamCity=CLASSIC ARIZONA
+TeamName=SKELETON CREW
+TeamAbbrev=PBR
+PrimaryColor=0, 0, 0
+SecondaryColor=255, 97, 0
+AlternateColor=54, 54, 54
+OffPlaybook=West Coast
+DefPlaybook=Three Four
+OffPlaybookSource=Default
+DefPlaybookSource=Default
+DefScheme=THREE_FOUR
+HomeStadium=Arizona

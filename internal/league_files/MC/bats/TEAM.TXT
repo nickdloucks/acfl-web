@@ -1,0 +1,12 @@
+TeamCity=CLASSIC ARIZONA
+TeamName=BATS
+TeamAbbrev=ARK
+PrimaryColor=75, 0, 130
+SecondaryColor=0, 0, 0
+AlternateColor=129,129, 129
+OffPlaybook=West Coast
+DefPlaybook=Three Four
+OffPlaybookSource=Default
+DefPlaybookSource=Default
+DefScheme=THREE_FOUR
+HomeStadium=Arizona

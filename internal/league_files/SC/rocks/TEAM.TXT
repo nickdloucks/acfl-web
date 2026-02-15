@@ -1,0 +1,12 @@
+TeamCity=CLASSIC ARIZONA
+TeamName=ROCKS
+TeamAbbrev=FCOL
+PrimaryColor=0, 0, 0
+SecondaryColor=255, 255, 255
+AlternateColor=85, 107, 47
+OffPlaybook=West Coast
+DefPlaybook=Three Four
+OffPlaybookSource=Default
+DefPlaybookSource=Default
+DefScheme=THREE_FOUR
+HomeStadium=Arizona

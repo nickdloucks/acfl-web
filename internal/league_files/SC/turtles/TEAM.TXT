@@ -1,0 +1,12 @@
+TeamCity=CLASSIC ARIZONA
+TeamName=TURTLES
+TeamAbbrev=EB
+PrimaryColor=0, 136, 0
+SecondaryColor=75, 0, 130
+AlternateColor=0, 0, 0
+OffPlaybook=West Coast
+DefPlaybook=Three Four
+OffPlaybookSource=Default
+DefPlaybookSource=Default
+DefScheme=THREE_FOUR
+HomeStadium=Arizona

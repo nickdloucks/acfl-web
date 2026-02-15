@@ -1,0 +1,12 @@
+TeamCity=CLASSIC ARIZONA
+TeamName=CRABS
+TeamAbbrev=SB
+PrimaryColor=255, 0, 0
+SecondaryColor=138, 43, 226
+AlternateColor=255, 255, 255
+OffPlaybook=West Coast
+DefPlaybook=Three Four
+OffPlaybookSource=Default
+DefPlaybookSource=Default
+DefScheme=THREE_FOUR
+HomeStadium=Arizona

@@ -1,0 +1,12 @@
+TeamCity=CLASSIC ARIZONA
+TeamName=ZEPHYRS
+TeamAbbrev=FOGI
+PrimaryColor=0, 0, 139
+SecondaryColor=184, 115, 51
+AlternateColor=54, 54, 54
+OffPlaybook=West Coast
+DefPlaybook=Three Four
+OffPlaybookSource=Default
+DefPlaybookSource=Default
+DefScheme=THREE_FOUR
+HomeStadium=Arizona

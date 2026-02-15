@@ -1,0 +1,12 @@
+TeamCity=CLASSIC ARIZONA
+TeamName=FLYING FISH
+TeamAbbrev=RFPT
+PrimaryColor=0, 0, 255
+SecondaryColor=0, 255, 0
+AlternateColor=255, 255, 255
+OffPlaybook=West Coast
+DefPlaybook=Three Four
+OffPlaybookSource=Default
+DefPlaybookSource=Default
+DefScheme=THREE_FOUR
+HomeStadium=Arizona
