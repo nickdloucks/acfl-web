@@ -72,7 +72,7 @@ const (
 	SILVER7     ColorStr = "#777777" // 119 119 119
 	SILVER8     ColorStr = "#c0c0c0" // 192 192 192
 	COPPER      ColorStr = "#b87333" // 184 115 51
-	LIGHTpURPLE ColorStr = "#8a2be2" // 138 43 226
+	LIGHTPURPLE ColorStr = "#8a2be2" // 138 43 226
 )
 
 var ColorPresets = map[string]ColorStr{
@@ -96,6 +96,7 @@ var ColorPresets = map[string]ColorStr{
 	// "#4b0082": INDIGO,
 	"#00008b": NAVY,
 	"#7f00ff": VIOLET,
+	"#8a2be2": LIGHTPURPLE,
 	"#4b0082": PURPLE,
 	"#d4af37": GOLD,
 	"#bcc6cc": SILVER1,
