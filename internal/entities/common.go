@@ -9,11 +9,11 @@ import (
 )
 
 type UuidV7Str string // A uuid v7 string.
-type UuidV7ProviderInterface interface {
+type UuidV7Provider interface {
 	NewUuidV7() UuidV7Str
 }
 
-type GameStatus string // Enumerated categorization of a game's current state.
+type GameStatus string // Enumerated categorization of a game's current status.
 
 const (
 	TBA        GameStatus = "TBA" // not yet scheduled
@@ -48,6 +48,7 @@ const (
 	// EXTRALIGHTGREY ColorStr = "#cccccc" //
 	BROWN      ColorStr = "#8b3613" // 139 54 19
 	RED        ColorStr = "#ff0000" // 255 0 0
+	MAROON     ColorStr = "#550000" // 85, 0, 0
 	ORANGE     ColorStr = "#ff6100" // 255 97 0
 	YELLOW     ColorStr = "#ffff00" // 255 255 0
 	GREEN      ColorStr = "#008800" // 0 136 0
@@ -85,6 +86,7 @@ var ColorPresets = map[string]ColorStr{
 	// "#cccccc": EXTRALIGHTGREY,
 	"#8b3613": BROWN,
 	"#ff0000": RED,
+	"#550000": MAROON,
 	"#ff6100": ORANGE,
 	"#ffff00": YELLOW,
 	"#008800": GREEN,
