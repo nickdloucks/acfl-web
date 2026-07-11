@@ -1,0 +1,102 @@
+openapi: '3.0.0'
+servers:
+  - url: dev.acfl.peef-snoot.xyz
+info:
+  contact:
+    name: Nick Loucks
+  version: '0.1.0'
+  title: 'ACFL API'
+  description: Alpine Cascadia Football League
+
+paths:
+  /teams/{teamId}:
+    parameters:
+      - name: teamId
+        description: The unique identifier of the team
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/TeamId'
+    get:
+      summary: Read a team
+      responses:
+        '200':
+          description: The team corresponding to the provided `teamId`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+        '404':
+          description: No team found for the provided `teamId`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /conferences/{conferenceId}:
+    parameters:
+      - name: conferenceId
+        description: The unique identifier of the conference
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/ConferenceId'
+components:
+  schemas:
+    TeamId:
+      description: The unique identifier of a team
+      type: string
+    Team:
+      type: object
+      required:
+        - id
+        - name
+        - type
+      properties:
+        id:
+          $ref: '#/components/schemas/TeamId'
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+            - capsule
+            - probe
+            - satellite
+            - spaceplane
+            - station
+        description:
+          type: string
+    ConferenceId:
+      description: The unique identifier of a conference
+      type: string
+    Conference:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          $ref: '#/components/schemas/ConferenceId'
+        name:
+          type: string
+    Error:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          description: A human readable error message
+          type: string
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+security:
+  - ApiKey: []

@@ -1,0 +1,7 @@
+# Use this workspace to collaborate
+workspace:
+  id: cf5db321-e2d4-431d-8cb0-62d509531619
+
+localResources:
+  specs:
+    - ../postman/specs/ACFL/ACFL-spec.yaml
