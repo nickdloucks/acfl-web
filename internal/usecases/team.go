@@ -6,15 +6,19 @@ import(
 
 
 type TeamRepository interface {
-	Create(name string) error
-	BulkCreate(names []string) error
+	// Create(name string) error
+	// BulkCreate(names []string) error
 	FindById(id entities.UuidV7Str) (entities.Team, error)
 }
 
 
-func NewTeam(p entities.UuidV7Provider, name string) *entities.Team {
+var uuidProviderUsecaseImpl = 
+
+func NewTeam(name string) *entities.Team {
 	return &entities.Team{
-		Id: p.NewUuidV7(),
+		Id: uuidProviderUsecaseImpl.NewUuidV7(),
 		Name: name,
 	}
 }
+// https://www.reddit.com/r/rust/comments/1try5g9/fastuuidv7_creating_uuidv7_faster_than_allocating/
+// rabbit hole 6
