@@ -86,13 +86,13 @@ const (
 	Handoff        InPlayAction = "handoff"
 	Lateral        InPlayAction = "lateral"
 	Pass           InPlayAction = "pass"
-	Reception      InPlayAction = "reception"
-	Catch          InPlayAction = "catch"
+	Reception      InPlayAction = "reception" // catching a pass
+	Catch          InPlayAction = "catch" // catching something else like a kick
 	TackleAction   InPlayAction = "tackle"
 	DroppedPass    InPlayAction = "dropped pass"
 	Fumble         InPlayAction = "fumble"
-	Interception   InPlayAction = "interception"
-	Swat           InPlayAction = "swat" // to be used for tipped passes, blocked field goals, blocked punts
+	Interception   InPlayAction = "interception" // catching a pass from the other team
+	Swat           InPlayAction = "swat" // to be used for tipped passes, blocked field goals, blocked punts ...?
 	FumbleRecovery InPlayAction = "fumble recovery"
 	Strip          InPlayAction = "strip"
 	Score          InPlayAction = "score"
